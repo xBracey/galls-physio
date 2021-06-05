@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react",
+    "baseUrl": "../",
+    "paths": {
+      "assets": ["src/site/assets/index"],
+      "data": ["src/site/data/index"],
+      "components": ["src/site/components/index"],
+      "components/*": ["src/site/components/*"],
+      "theme": ["src/site/theme/index"],
+      "lib": ["src/site/lib/index"],
+      "templates": ["src/site/templates/index"],
+      "redux/actions": ["src/site/redux/actions/index"],
+      "redux/reducers": ["src/site/redux/reducers/index"],
+      "redux/requests": ["src/site/redux/requests/index"],
+      "redux/store": ["src/site/redux/store"]
+    },
+    "downlevelIteration": true,
+    "typeRoots": ["./src/types", "./node_modules/@types"]
+  },
+  "exclude": ["../node_modules"],
+  "include": [
+    "../types.d.ts",
+    "../next-env.d.ts",
+    "../**/*.d.ts",
+    "../**/*.stories.ts",
+    "../**/*.stories.tsx"
+  ]
+}

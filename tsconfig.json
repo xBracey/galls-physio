@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "jsx": "preserve",
+    "baseUrl": "./",
+    "paths": {
+      "assets": ["src/assets"],
+      "components/*": ["src/components/*"],
+      "theme": ["src/theme/index"],
+      "lib/*": ["src/lib/*"],
+      "templates/*": ["src/templates/*"],
+      "redux/actions/*": ["src/redux/actions/*"],
+      "redux/reducers/*": ["src/redux/reducers/*"],
+      "redux/requests/*": ["src/redux/requests/*"],
+      "redux/store": ["src/redux/store"]
+    },
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "module": "CommonJS",
+    "isolatedModules": true,
+    "typeRoots": ["./src/types", "./node_modules/@types"]
+  },
+  "exclude": ["node_modules/**", ".vscode/.templates/*.ts", ".storybook/*"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+}
