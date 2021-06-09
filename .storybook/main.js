@@ -2,7 +2,7 @@ const path = require("path");
 
 module.exports = {
   addons: ["@storybook/addon-actions", "@storybook/addon-knobs"],
-  stories: ["../src/site/components/**/**/*.stories.tsx"],
+  stories: ["../src/components/**/**/*.stories.tsx"],
   typescript: {
     reactDocgen: "react-docgen-typescript",
   },
@@ -22,7 +22,7 @@ module.exports = {
     });
 
     config.resolve.modules = [
-      path.resolve(__dirname, "../src", "site"),
+      path.resolve(__dirname, "../src"),
       "node_modules",
     ];
 
