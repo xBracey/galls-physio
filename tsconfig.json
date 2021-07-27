@@ -11,6 +11,7 @@
     "baseUrl": "./",
     "paths": {
       "assets": ["src/assets"],
+      "data/*": ["src/data/*"],
       "components/*": ["src/components/*"],
       "theme": ["src/theme/index"],
       "lib/*": ["src/lib/*"],

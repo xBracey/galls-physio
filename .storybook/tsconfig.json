@@ -17,6 +17,7 @@
     "paths": {
       "assets": ["src/assets"],
       "components/*": ["src/components/*"],
+      "data/*": ["src/data/*"],
       "theme": ["src/theme/index"],
       "lib/*": ["src/lib/*"],
       "templates/*": ["src/templates/*"],

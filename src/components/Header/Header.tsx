@@ -1,42 +1,60 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import {
   HeaderContainer,
   HeaderLogo,
-  MenuLink,
-  MenuExternalLink,
+  HeaderMobileMenu,
+  HeaderMobileMenuContainer,
   MenuContainer,
+  MobileMenuContainer,
 } from "./Header.styled";
+import { renderMenu } from "./HeaderComponents";
+import ScrollLock from "react-scrolllock";
+import { icons } from "assets";
 
-interface IMenu {
+export interface ISubMenu {
   label: string;
   link: string;
   externalLink?: boolean;
 }
 
-interface IHeader {
+export interface IMenu extends ISubMenu {
+  subMenu?: ISubMenu[];
+}
+
+export interface IHeader {
   menu: IMenu[];
 }
 
 export const Header = ({ menu }: IHeader) => {
-  const menuComponent = menu.map(singleMenu =>
-    singleMenu.externalLink ? (
-      <MenuExternalLink href={singleMenu.link} key={singleMenu.link}>
-        {singleMenu.label}
-      </MenuExternalLink>
-    ) : (
-      <MenuLink href={singleMenu.link} key={singleMenu.link}>
-        {singleMenu.label}
-      </MenuLink>
-    )
-  );
+  const [open, setOpen] = useState(false);
+
+  const menuComponent = menu.map(renderMenu);
+
+  const mobileMenuComponent = open ? (
+    <>
+      <ScrollLock />
+      <HeaderMobileMenu>{menuComponent}</HeaderMobileMenu>
+    </>
+  ) : null;
+
+  const onMenuClick = () => {
+    window.scrollTo(0, 0);
+    setOpen(!open);
+  };
 
   return (
     <HeaderContainer>
       <Link href="/">
-        <HeaderLogo src="/static/logo.png" />
+        <HeaderLogo src="/static/logo.jpg" />
       </Link>
       <MenuContainer>{menuComponent}</MenuContainer>
+      {mobileMenuComponent}
+      <HeaderMobileMenuContainer>
+        <MobileMenuContainer onClick={onMenuClick}>
+          {open ? <icons.close /> : <icons.menu />}
+        </MobileMenuContainer>
+      </HeaderMobileMenuContainer>
     </HeaderContainer>
   );
 };

@@ -1,5 +1,6 @@
 import React from "react";
+import { Page } from "templates/Page";
 
-const Home = () => <div>Hello World</div>;
+const Home = () => <Page>Hello World</Page>;
 
 export default Home;
