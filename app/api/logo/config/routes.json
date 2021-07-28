@@ -1,0 +1,43 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/logos",
+      "handler": "logo.find"
+    },
+    {
+      "method": "GET",
+      "path": "/logos/count",
+      "handler": "logo.count"
+    },
+    {
+      "method": "GET",
+      "path": "/logos/:id",
+      "handler": "logo.findOne"
+    },
+    {
+      "method": "POST",
+      "path": "/logos",
+      "handler": "logo.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/logos/:id",
+      "handler": "logo.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/logos/:id",
+      "handler": "logo.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import { types } from '../reducers';
-import { fetch{{ pascalCase name }} } from '../requests';
+import { fetch{{ pascalCase name }} } from '../requests/{{ pascalCase name }}';
 import { ThunkResult } from '../types';
 
 export const get{{ pascalCase name }} = (): ThunkResult<any>  => {

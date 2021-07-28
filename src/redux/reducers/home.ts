@@ -1,10 +1,17 @@
+import { config } from "config";
 import { IAction, IReducers } from "../types";
+
+interface IHomeImageText {
+  content: string;
+  imgUrl: string;
+}
 
 export interface IHome {
   loading: boolean;
   heroHeader: string;
   heroDescription: string;
   heroImageUrl: string;
+  mainImageText: IHomeImageText[];
 }
 
 const initialState: IHome = {
@@ -12,6 +19,7 @@ const initialState: IHome = {
   heroHeader: null,
   heroDescription: null,
   heroImageUrl: null,
+  mainImageText: [],
 };
 
 export const homeTypes = {
@@ -26,14 +34,20 @@ export const homeTypes = {
 const loadingHome = state => ({ ...state, loading: true });
 
 const fetchedHome = (state, { data }) => {
-  const { heroHeader, heroDescription, heroImage } = data;
+  const { heroHeader, heroDescription, heroImage, main } = data;
+
+  const mainImageText = main.map(singleImageText => ({
+    content: singleImageText.content,
+    imgUrl: config.api + singleImageText.image[0]?.formats.small.url,
+  }));
 
   return {
     ...state,
     loading: false,
     heroHeader,
     heroDescription,
-    heroImageUrl: heroImage?.url,
+    heroImageUrl: config.api + heroImage?.url,
+    mainImageText,
   };
 };
 

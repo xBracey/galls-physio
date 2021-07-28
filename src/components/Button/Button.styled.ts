@@ -61,6 +61,7 @@ export const ButtonContainer = styled.div<IButtonContainer>`
   transition: all 0.2s;
   user-select: none;
   font-weight: 500;
+  white-space: pre;
   border: 4px solid
     ${props => {
       if (props.isDisabled) {

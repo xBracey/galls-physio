@@ -6,6 +6,7 @@ import {
   ImageContent,
   ImageContentContainer,
   ImageImage,
+  ImageTextOuterContainer,
 } from "./ImageText.styled";
 
 interface IImageText {
@@ -40,14 +41,16 @@ export const ImageText = ({
   );
 
   return (
-    <ImageTextContainer blueBackground={blueBackground}>
-      <ImageContentContainer>
-        <ImageContent dangerouslySetInnerHTML={{ __html: contentHTML }} />
-        {callToActionComponent}
-      </ImageContentContainer>
-      <ImageContentContainer>
-        <ImageImage src={imgUrl} />
-      </ImageContentContainer>
-    </ImageTextContainer>
+    <ImageTextOuterContainer blueBackground={blueBackground}>
+      <ImageTextContainer blueBackground={blueBackground}>
+        <ImageContentContainer>
+          <ImageContent dangerouslySetInnerHTML={{ __html: contentHTML }} />
+          {callToActionComponent}
+        </ImageContentContainer>
+        <ImageContentContainer>
+          <ImageImage src={imgUrl} />
+        </ImageContentContainer>
+      </ImageTextContainer>
+    </ImageTextOuterContainer>
   );
 };

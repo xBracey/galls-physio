@@ -20,6 +20,7 @@
       "data/*": ["src/data/*"],
       "theme": ["src/theme/index"],
       "lib/*": ["src/lib/*"],
+      "config": ["src/config/index.ts"],
       "templates/*": ["src/templates/*"],
       "redux/actions/*": ["src/redux/actions/*"],
       "redux/reducers/*": ["src/redux/reducers/*"],
