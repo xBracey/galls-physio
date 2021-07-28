@@ -13,13 +13,14 @@ export const LogoBannerContainer = styled.div`
   flex-wrap: wrap;
   width: 100%;
   max-width: 800px;
-  padding: 25px 0;
+  padding: 10px 0;
 `;
 
 export const SingleLogoContainer = styled.a``;
 
 export const SingleLogo = styled.img`
-  height: 140px;
+  height: 120px;
+  padding: 30px;
   opacity: 0.5;
   filter: grayscale(100%);
 `;

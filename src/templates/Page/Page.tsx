@@ -9,6 +9,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { IRootState } from "redux/reducers/index";
 import { getLogos } from "redux/actions/logos";
 import { LogoBanner } from "components/LogoBanner";
+import { Footer } from "components/Footer";
+import { CopyrightFooter } from "components/CopyrightFooter";
+import { getFooter } from "redux/actions/footer";
 
 interface IPage {
   children: ReactNode;
@@ -19,9 +22,11 @@ export const Page = ({ children }: IPage) => {
 
   const dispatch: AppDispatch = useDispatch();
   const logos = useSelector((state: IRootState) => state.logos);
+  const footer = useSelector((state: IRootState) => state.footer);
 
   useEffect(() => {
     dispatch(getLogos());
+    dispatch(getFooter());
   }, []);
 
   return (
@@ -36,6 +41,24 @@ export const Page = ({ children }: IPage) => {
         }}
       />
       <LogoBanner logos={logos.logos} />
+      <Footer
+        address={footer.address}
+        mobile={footer.mobile}
+        facebook={footer.facebook}
+        email={footer.email}
+        openingHours={footer.openingHours}
+        services={[
+          {
+            text: "General Physio",
+            link: "/services/general-physio",
+          },
+          {
+            text: "Sports Physio",
+            link: "/services/sports-physio",
+          },
+        ]}
+      />
+      <CopyrightFooter />
     </PageContainer>
   );
 };

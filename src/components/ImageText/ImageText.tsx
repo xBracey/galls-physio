@@ -8,6 +8,7 @@ import {
   ImageImage,
   ImageTextOuterContainer,
 } from "./ImageText.styled";
+import { formatMarkdown } from "lib/formatMarkdown";
 
 interface IImageText {
   content: string;
@@ -31,20 +32,13 @@ export const ImageText = ({
       />
     ) : null;
 
-  const contentHTML = marked(
-    content.replaceAll(
-      "\\n",
-      `
-   `
-    ),
-    { breaks: true }
-  );
-
   return (
     <ImageTextOuterContainer blueBackground={blueBackground}>
       <ImageTextContainer blueBackground={blueBackground}>
         <ImageContentContainer>
-          <ImageContent dangerouslySetInnerHTML={{ __html: contentHTML }} />
+          <ImageContent
+            dangerouslySetInnerHTML={{ __html: formatMarkdown(content) }}
+          />
           {callToActionComponent}
         </ImageContentContainer>
         <ImageContentContainer>

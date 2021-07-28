@@ -2,6 +2,7 @@ import React from "react";
 import { Header } from "./Header";
 import { storiesOf } from "@storybook/react";
 import { colours } from "theme";
+import { boolean } from "@storybook/addon-knobs";
 
 const story = storiesOf("Components/Header", module);
 
@@ -64,6 +65,7 @@ story.add("Header Component", () => (
           link: "/contact",
         },
       ]}
+      isTop={boolean("Is Top", false)}
     />
   </div>
 ));
