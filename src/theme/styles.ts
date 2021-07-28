@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
+import { PageContent } from "templates/Page/Page.styled";
 import { fonts } from "./fonts";
 
 interface IStorybookWrapper {
@@ -41,10 +42,21 @@ export const GlobalStyles = createGlobalStyle`
     p,a,div {
         font-size: ${fonts.size.medium};
     }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    } 
 `;
 
 export const StorybookWrapper = styled.div<IStorybookWrapper>`
   padding: 16px;
   width: ${props => props.width ?? 600}px;
   display: flex;
+`;
+
+export const HeaderLockScroll = createGlobalStyle`
+  ${PageContent} {
+    max-height: calc(100vh - 130px);
+  }
 `;

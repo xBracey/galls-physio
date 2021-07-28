@@ -1,6 +1,5 @@
 import axios, { AxiosRequestConfig } from "axios";
 import axiosRetry from "axios-retry";
-import { IRootState } from "./reducers";
 import { IAPIResponse } from "./types";
 
 axiosRetry(axios, { retries: 3 });
@@ -11,7 +10,7 @@ export const apiRequest = async (
   successMessage: string = null,
   errorMessage: string = null
 ): Promise<IAPIResponse> => {
-  const apiPrefix = "/api";
+  const apiPrefix = "http://localhost:1337";
 
   try {
     const response = await axios.request({

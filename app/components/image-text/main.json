@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_image_text_mains",
+  "info": {
+    "name": "main",
+    "icon": "align-justify"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "richtext"
+    },
+    "image": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    }
+  }
+}

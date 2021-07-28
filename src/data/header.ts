@@ -3,7 +3,7 @@ import { IMenu } from "components/Header";
 export const header: IMenu[] = [
   {
     label: "COVID-19",
-    link: "/covid-1",
+    link: "/covid-19",
   },
   {
     label: "Services",

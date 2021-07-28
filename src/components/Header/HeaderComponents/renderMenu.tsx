@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { IMenu, ISubMenu } from "../Header";
 import {
@@ -26,8 +27,8 @@ export const renderMenu = (singleMenu: IMenu) => {
       {singleMenu.label}
     </MenuExternalLink>
   ) : (
-    <MenuLink href={singleMenu.link} key={singleMenu.label}>
-      {singleMenu.label}
-    </MenuLink>
+    <Link href={singleMenu.link} key={singleMenu.label}>
+      <MenuLink key={singleMenu.label}>{singleMenu.label}</MenuLink>
+    </Link>
   );
 };

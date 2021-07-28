@@ -16,7 +16,7 @@ story.add("Header Component", () => (
       menu={[
         {
           label: "COVID-19",
-          link: "/covid-1",
+          link: "/covid-19",
         },
         {
           label: "Services",

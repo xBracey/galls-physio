@@ -1,27 +1,47 @@
 import styled, { css } from "styled-components";
 import { colours, device, fonts } from "theme";
-import Link from "next/link";
+
+interface IHeaderOuterContainer {
+  isTop: boolean;
+}
 
 interface IMenuContainer {
   open: boolean;
 }
 
+export const HeaderOuterContainer = styled.div<IHeaderOuterContainer>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 5000;
+  width: 100%;
+  transition: all 0.4s ease-in-out;
+  box-shadow: 0 4px 6px -2px rgba(35, 35, 35, 0.5);
+
+  background-color: ${props =>
+    props.isTop ? colours.blackHero : colours.white};
+
+  color: ${props => (props.isTop ? colours.white : colours.blue200)};
+`;
+
 export const HeaderContainer = styled.div`
-  background-color: ${colours.white};
   height: 130px;
   width: calc(100% - 64px);
+  max-width: 1000px;
   padding: 0px 32px;
 
   display: flex;
   align-items: center;
-
-  color: ${colours.white};
 `;
 
-export const HeaderLogo = styled.img`
+export const HeaderLogo = styled.img<IHeaderOuterContainer>`
   height: 110px;
   width: 135.85px;
   cursor: pointer;
+  transition: all 0.4s;
+  ${props => (props.isTop ? "filter: brightness(150%)" : null)}
 `;
 
 const SingleMenuHover = css`
@@ -36,7 +56,6 @@ const SingleMenuHover = css`
 
 const SingleMenu = css`
   margin: 19px 20px;
-  color: ${colours.blue200};
   border-bottom: transparent 3px solid;
   transition: 0.4s ease-in-out;
   font-size: ${fonts.size.large};
@@ -53,7 +72,7 @@ const SingleMenu = css`
   }
 `;
 
-export const MenuLink = styled(Link)`
+export const MenuLink = styled.p`
   ${SingleMenu}
   ${SingleMenuHover}
 `;
@@ -82,14 +101,16 @@ export const SubMenuContainer = styled.div`
   display: flex;
   position: absolute;
   top: 30px;
-  left: -20px;
-  right: -20px;
+  left: -40px;
+  right: -40px;
   background-color: ${colours.blue200};
   padding: 12px;
-  transition: 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out;
   opacity: 0;
-  z-index: -1;
   flex-direction: column;
+  overflow: hidden;
+  height: 0;
+  z-index: -1;
 
   ${MenuLink}, ${MenuExternalLink} {
     color: ${colours.white};
@@ -108,7 +129,7 @@ export const SubMenuContainer = styled.div`
   @media ${device.menu} {
     position: static;
     opacity: 1;
-    z-index: 1;
+    height: initial;
   }
 `;
 
@@ -119,6 +140,7 @@ export const MenuSubMenuLink = styled.div`
     ${SubMenuContainer} {
       opacity: 1;
       z-index: 1;
+      height: initial;
     }
   }
 `;
