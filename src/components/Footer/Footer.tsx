@@ -5,11 +5,12 @@ import {
   FooterThird,
   FooterHeader,
   FooterText,
-  FooterLink,
   FooterLogos,
   FooterLogo,
   FooterLogoLink,
   FooterOuterContainer,
+  FooterInternalLink,
+  FooterExternalLink,
 } from "./Footer.styled";
 
 interface IService {
@@ -36,7 +37,7 @@ export const Footer = ({
 }: IFooter) => {
   const servicesComponent = services.map(service => (
     <Link key={service.text} href={service.link}>
-      <FooterLink key={service.text}>{service.text}</FooterLink>
+      <FooterInternalLink key={service.text}>{service.text}</FooterInternalLink>
     </Link>
   ));
 
@@ -48,7 +49,9 @@ export const Footer = ({
           <FooterText>{address}</FooterText>
           <FooterText>
             {`Phone: `}
-            <FooterLink href={`tel:${mobile}`}>{mobile}</FooterLink>
+            <FooterExternalLink href={`tel:${mobile}`}>
+              {mobile}
+            </FooterExternalLink>
           </FooterText>
         </FooterThird>
         <FooterThird>

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { colours, device } from "theme";
 
 export const FooterOuterContainer = styled.div`
@@ -40,10 +40,19 @@ export const FooterText = styled.p`
   text-align: center;
 `;
 
-export const FooterLink = styled.p`
+const FooterLink = css`
   color: ${colours.grey100};
   margin: 10px;
   text-align: center;
+`;
+
+export const FooterExternalLink = styled.a`
+  ${FooterLink}
+`;
+
+export const FooterInternalLink = styled.p`
+  ${FooterLink}
+  cursor: pointer;
 `;
 
 export const FooterLogos = styled.div``;
