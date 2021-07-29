@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import {
   FooterContainer,
@@ -34,9 +35,9 @@ export const Footer = ({
   services,
 }: IFooter) => {
   const servicesComponent = services.map(service => (
-    <FooterLink key={service.text} href={service.link}>
-      {service.text}
-    </FooterLink>
+    <Link key={service.text} href={service.link}>
+      <FooterLink key={service.text}>{service.text}</FooterLink>
+    </Link>
   ));
 
   return (

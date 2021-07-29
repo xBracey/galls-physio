@@ -40,7 +40,7 @@ export const FooterText = styled.p`
   text-align: center;
 `;
 
-export const FooterLink = styled.a`
+export const FooterLink = styled.p`
   color: ${colours.grey100};
   margin: 10px;
   text-align: center;

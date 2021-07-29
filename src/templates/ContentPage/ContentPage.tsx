@@ -37,15 +37,7 @@ export const ContentPage = ({ pageMenu, activeContent }: IContentPage) => {
 
   const activeContentState: ISingleContent = contentState[activeContent];
 
-  if (!activeContent || !activeContentState?.content) {
-    return (
-      <Page title={""}>
-        <ContentPageContainer />
-      </Page>
-    );
-  }
-
-  const { header, imgUrl, content } = activeContentState;
+  const { header, imgUrl, content } = activeContentState || {};
 
   return (
     <Page title={header}>
@@ -58,7 +50,9 @@ export const ContentPage = ({ pageMenu, activeContent }: IContentPage) => {
               <ContentPageHeaderImage src={imgUrl} />
             </PageMenuContainer>
             <ContentPageContent
-              dangerouslySetInnerHTML={{ __html: formatMarkdown(content) }}
+              dangerouslySetInnerHTML={{
+                __html: content ? formatMarkdown(content) : "",
+              }}
             />
           </ContentPageHeroContainer>
         </ContentPageHeroOuterContainer>
