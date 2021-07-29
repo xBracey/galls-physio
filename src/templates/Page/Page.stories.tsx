@@ -4,4 +4,4 @@ import { storiesOf } from "@storybook/react";
 
 const story = storiesOf("Templates/Page", module);
 
-story.add("Page Component", () => <Page>Hello World</Page>);
+story.add("Page Component", () => <Page title="Hello">Hello World</Page>);
