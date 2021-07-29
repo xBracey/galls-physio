@@ -1,8 +1,8 @@
 import React from "react";
 import { ComingSoonPage } from "templates/ComingSoonPage";
 
-const Blog = () => {
+const Testimonials = () => {
   return <ComingSoonPage />;
 };
 
-export default Blog;
+export default Testimonials;

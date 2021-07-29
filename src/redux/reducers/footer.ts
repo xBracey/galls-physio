@@ -30,8 +30,6 @@ export const footerTypes = {
 const loadingFooter = state => ({ ...state, loading: true });
 
 const fetchedFooter = (state, { data }) => {
-  console.log(data);
-
   return { ...state, loading: false, ...data };
 };
 

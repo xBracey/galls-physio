@@ -38,8 +38,8 @@ story.add("Header Component", () => (
           link: "/team",
         },
         {
-          label: "About Us",
-          link: "/about-us",
+          label: "About",
+          link: "/about",
           subMenu: [
             {
               label: "Where to find us",

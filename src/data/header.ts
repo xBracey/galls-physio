@@ -24,12 +24,12 @@ export const header: IMenu[] = [
     link: "/team",
   },
   {
-    label: "About Us",
-    link: "/about-us",
+    label: "About",
+    link: "/about",
     subMenu: [
       {
-        label: "Where to find us",
-        link: "/about/where-to-find-us",
+        label: "About us",
+        link: "/about",
       },
       {
         label: "Testimonials",
@@ -37,7 +37,7 @@ export const header: IMenu[] = [
       },
       {
         label: "COVID-19",
-        link: "/covid-19",
+        link: "/about/covid",
       },
     ],
   },

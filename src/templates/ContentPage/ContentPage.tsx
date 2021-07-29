@@ -17,7 +17,6 @@ interface IContentPage {
   header: string;
   imgUrl: string;
   content: string;
-  title: string;
 }
 
 export const ContentPage = ({
@@ -25,10 +24,9 @@ export const ContentPage = ({
   header,
   imgUrl,
   content,
-  title,
 }: IContentPage) => {
   return (
-    <Page title={title}>
+    <Page title={header}>
       <ContentPageContainer>
         <ContentPageHeader>{header}</ContentPageHeader>
         <ContentPageHeroOuterContainer>

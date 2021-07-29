@@ -28,8 +28,6 @@ export const logosTypes = {
 const loadingLogos = state => ({ ...state, loading: true });
 
 const fetchedLogos = (state, { data }) => {
-  console.log(data);
-
   const logos = data.map(logo => ({
     link: logo.link,
     imgUrl: config.api + logo.image?.url,

@@ -1,7 +1,7 @@
 import React from "react";
 import { ContentPage } from "templates/ContentPage";
 
-const GeneralPhysio = () => {
+const About = () => {
   const content = `
 ### Header look at me!
 
@@ -23,23 +23,27 @@ and more recently with desktop publishing software like Aldus PageMaker includin
   return (
     <ContentPage
       pageMenu={{
-        header: "General Physio",
+        header: "About",
         menu: [
           {
-            text: "General Physio",
-            link: "/services/general-physio",
+            text: "About Us",
+            link: "/about",
           },
           {
-            text: "Sports Physio",
-            link: "/services/sports-physio",
+            text: "Testimonials",
+            link: "/about/testimonials",
+          },
+          {
+            text: "COVID-19",
+            link: "/about/covid",
           },
         ],
       }}
-      header="General Physio"
+      header="About Us"
       imgUrl="/static/hero-1.jpg"
       content={content}
     />
   );
 };
 
-export default GeneralPhysio;
+export default About;

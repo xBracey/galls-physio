@@ -1,5 +1,5 @@
 import React from "react";
-import { ContentPage } from "templates/Page/ContentPage";
+import { ContentPage } from "templates/ContentPage";
 
 const SportsPhysio = () => {
   const content = `
@@ -38,7 +38,6 @@ and more recently with desktop publishing software like Aldus PageMaker includin
       header="Sports Physio"
       imgUrl="/static/hero-1.jpg"
       content={content}
-      title="Sports Physio"
     />
   );
 };
