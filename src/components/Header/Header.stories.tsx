@@ -46,10 +46,6 @@ story.add("Header Component", () => (
               link: "/where-to-find-us",
             },
             {
-              label: "Who we work with",
-              link: "/work-with",
-            },
-            {
               label: "Testimonials",
               link: "/work-with",
             },

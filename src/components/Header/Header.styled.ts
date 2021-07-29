@@ -110,7 +110,7 @@ export const SubMenuContainer = styled.div`
   flex-direction: column;
   overflow: hidden;
   height: 0;
-  z-index: -1;
+  padding: 0;
 
   ${MenuLink}, ${MenuExternalLink} {
     color: ${colours.white};
@@ -122,7 +122,7 @@ export const SubMenuContainer = styled.div`
     border-bottom: transparent 2px solid;
 
     &:hover {
-      border-bottom: ${colours.white} 2px solid;
+      border-bottom: transparent 2px solid;
     }
   }
 
@@ -139,8 +139,8 @@ export const MenuSubMenuLink = styled.div`
   &:hover {
     ${SubMenuContainer} {
       opacity: 1;
-      z-index: 1;
       height: initial;
+      padding: 12px;
     }
   }
 `;
@@ -177,7 +177,7 @@ export const HeaderMobileMenu = styled.div`
   right: 0;
   background-color: ${colours.blue200};
   z-index: 1000;
-  padding: 32px 16px;
+  padding: 24px 16px;
   flex-direction: column;
   overflow: auto;
 
@@ -191,9 +191,9 @@ export const HeaderMobileMenu = styled.div`
 
   ${MenuLink}, ${MenuExternalLink} ,${MenuSubMenuLink} {
     color: ${colours.white};
-    margin: 15px 36px;
+    margin: 10px 20px;
     height: initial;
-    font-size: 24px;
+    font-size: 18px;
     border-bottom: none !important;
     text-align: left;
   }

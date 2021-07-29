@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
-import { PageContent } from "templates/Page/Page.styled";
+import { PageContainer, PageContent } from "templates/Page/Page.styled";
 import { fonts } from "./fonts";
 
 interface IStorybookWrapper {
@@ -56,7 +56,7 @@ export const StorybookWrapper = styled.div<IStorybookWrapper>`
 `;
 
 export const HeaderLockScroll = createGlobalStyle`
-  ${PageContent} {
-    max-height: calc(100vh - 130px);
+  html {
+      overflow: hidden;
   }
 `;

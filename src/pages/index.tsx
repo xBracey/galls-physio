@@ -6,7 +6,6 @@ import { getHome } from "redux/actions/home";
 import { IRootState } from "redux/reducers/index";
 import { AppDispatch } from "redux/store";
 import { Page } from "templates/Page";
-import { config } from "config";
 
 const Home = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -28,7 +27,7 @@ const Home = () => {
   );
 
   return (
-    <Page>
+    <Page title="Home">
       <HomeHero
         imgUrl={home.heroImageUrl}
         header={home.heroHeader}

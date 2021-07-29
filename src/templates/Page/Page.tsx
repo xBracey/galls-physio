@@ -12,12 +12,14 @@ import { LogoBanner } from "components/LogoBanner";
 import { Footer } from "components/Footer";
 import { CopyrightFooter } from "components/CopyrightFooter";
 import { getFooter } from "redux/actions/footer";
+import { Head } from "components/Head";
 
 interface IPage {
   children: ReactNode;
+  title: string;
 }
 
-export const Page = ({ children }: IPage) => {
+export const Page = ({ children, title }: IPage) => {
   const isTop = useScroll();
 
   const dispatch: AppDispatch = useDispatch();
@@ -31,6 +33,7 @@ export const Page = ({ children }: IPage) => {
 
   return (
     <PageContainer>
+      <Head title={`First Team Physio - ${title}`} />
       <Header menu={header} isTop={isTop} />
       <PageContent>{children}</PageContent>
       <ContactBanner

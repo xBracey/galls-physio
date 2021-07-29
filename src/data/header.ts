@@ -2,8 +2,8 @@ import { IMenu } from "components/Header";
 
 export const header: IMenu[] = [
   {
-    label: "COVID-19",
-    link: "/covid-19",
+    label: "Blog",
+    link: "/blog",
   },
   {
     label: "Services",
@@ -11,11 +11,11 @@ export const header: IMenu[] = [
     subMenu: [
       {
         label: "General Physio",
-        link: "/services/general",
+        link: "/services/general-physio",
       },
       {
         label: "Sports Physio",
-        link: "/services/sports",
+        link: "/services/sports-physio",
       },
     ],
   },
@@ -32,16 +32,12 @@ export const header: IMenu[] = [
         link: "/about/where-to-find-us",
       },
       {
-        label: "Who we work with",
-        link: "/about/work-with",
-      },
-      {
         label: "Testimonials",
         link: "/about/testimonials",
       },
       {
-        label: "FAQs",
-        link: "/about/faqs",
+        label: "COVID-19",
+        link: "/covid-19",
       },
     ],
   },
