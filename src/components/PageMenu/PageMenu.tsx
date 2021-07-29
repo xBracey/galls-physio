@@ -19,8 +19,8 @@ export interface IPageMenu {
 
 export const PageMenu = ({ header, menu }: IPageMenu) => {
   const menuComponent = menu.map(singleMenu => (
-    <Link href={singleMenu.link}>
-      <PageSingleMenu>{singleMenu.text}</PageSingleMenu>
+    <Link href={singleMenu.link} key={singleMenu.text}>
+      <PageSingleMenu key={singleMenu.text}>{singleMenu.text}</PageSingleMenu>
     </Link>
   ));
 

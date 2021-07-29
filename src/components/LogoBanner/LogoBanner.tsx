@@ -17,7 +17,7 @@ interface ILogoBanner {
 
 export const LogoBanner = ({ logos }: ILogoBanner) => {
   const logosComponent = logos.map(logo => (
-    <SingleLogoContainer href={logo.link}>
+    <SingleLogoContainer key={logo.imgUrl} href={logo.link}>
       <SingleLogo src={logo.imgUrl} />
     </SingleLogoContainer>
   ));

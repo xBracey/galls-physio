@@ -1,0 +1,25 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/sports-physio",
+      "handler": "sports-physio.find"
+    },
+    {
+      "method": "PUT",
+      "path": "/sports-physio",
+      "handler": "sports-physio.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/sports-physio",
+      "handler": "sports-physio.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

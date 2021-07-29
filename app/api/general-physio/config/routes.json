@@ -1,0 +1,25 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/general-physio",
+      "handler": "general-physio.find"
+    },
+    {
+      "method": "PUT",
+      "path": "/general-physio",
+      "handler": "general-physio.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/general-physio",
+      "handler": "general-physio.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

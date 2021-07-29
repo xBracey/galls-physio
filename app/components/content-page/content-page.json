@@ -1,14 +1,13 @@
 {
-  "collectionName": "components_image_text_mains",
+  "collectionName": "components_content_page_content_pages",
   "info": {
-    "name": "main",
-    "icon": "align-justify",
-    "description": ""
+    "name": "Content Page",
+    "icon": "align-center"
   },
   "options": {},
   "attributes": {
-    "content": {
-      "type": "richtext"
+    "header": {
+      "type": "string"
     },
     "image": {
       "model": "file",
@@ -19,6 +18,10 @@
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
+    },
+    "content": {
+      "type": "richtext",
+      "required": true
     }
   }
 }

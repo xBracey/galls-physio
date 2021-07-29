@@ -38,7 +38,7 @@ const fetchedHome = (state, { data }) => {
 
   const mainImageText = main.map(singleImageText => ({
     content: singleImageText.content,
-    imgUrl: config.api + singleImageText.image[0]?.formats.small.url,
+    imgUrl: config.api + singleImageText.image?.formats.small.url,
   }));
 
   return {

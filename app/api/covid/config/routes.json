@@ -1,0 +1,25 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/covid",
+      "handler": "covid.find"
+    },
+    {
+      "method": "PUT",
+      "path": "/covid",
+      "handler": "covid.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/covid",
+      "handler": "covid.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

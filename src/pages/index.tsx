@@ -19,6 +19,7 @@ const Home = () => {
   const imageTextComponent = home.mainImageText.map(
     (singleImageText, index) => (
       <ImageText
+        key={index}
         content={singleImageText.content}
         imgUrl={singleImageText.imgUrl}
         blueBackground={index % 2 === 1}

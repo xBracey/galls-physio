@@ -1,6 +1,10 @@
 import { IPageMenu, PageMenu } from "components/PageMenu";
 import { formatMarkdown } from "lib/formatMarkdown";
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getContent } from "redux/actions/content";
+import { ISingleContent } from "redux/reducers/content";
+import { IRootState, types } from "redux/reducers/index";
 import { Page } from "templates/Page";
 import {
   ContentPageContainer,
@@ -14,17 +18,35 @@ import {
 
 interface IContentPage {
   pageMenu: IPageMenu;
-  header: string;
-  imgUrl: string;
-  content: string;
+  activeContent: string;
 }
 
-export const ContentPage = ({
-  pageMenu,
-  header,
-  imgUrl,
-  content,
-}: IContentPage) => {
+export const ContentPage = ({ pageMenu, activeContent }: IContentPage) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({
+      type: types.content.CONTENT_SET_ACTIVE_CONTENT,
+      data: { activeContent },
+    });
+
+    dispatch(getContent());
+  }, []);
+
+  const contentState = useSelector((state: IRootState) => state.content);
+
+  const activeContentState: ISingleContent = contentState[activeContent];
+
+  if (!activeContent || !activeContentState?.content) {
+    return (
+      <Page title={""}>
+        <ContentPageContainer />
+      </Page>
+    );
+  }
+
+  const { header, imgUrl, content } = activeContentState;
+
   return (
     <Page title={header}>
       <ContentPageContainer>

@@ -6,7 +6,7 @@ import { colours, StorybookWrapper } from "theme";
 const story = storiesOf("Components/PageMenu", module);
 
 story.add("PageMenu Component", () => (
-  <StorybookWrapper style={{ backgroundColor: colours.blue200 }}>
+  <StorybookWrapper style={{ backgroundColor: colours.white }}>
     <PageMenu
       header="Services"
       menu={[

@@ -34,7 +34,9 @@ export const Footer = ({
   services,
 }: IFooter) => {
   const servicesComponent = services.map(service => (
-    <FooterLink href={service.link}>{service.text}</FooterLink>
+    <FooterLink key={service.text} href={service.link}>
+      {service.text}
+    </FooterLink>
   ));
 
   return (
@@ -55,7 +57,7 @@ export const Footer = ({
             <FooterLogoLink href={facebook}>
               <FooterLogo src={"/static/logo/facebook.png"} />
             </FooterLogoLink>
-            <FooterLogoLink href={email}>
+            <FooterLogoLink href={`mailto:${email}`}>
               <FooterLogo src={"/static/logo/email.svg"} />
             </FooterLogoLink>
           </FooterLogos>
