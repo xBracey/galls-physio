@@ -50,7 +50,7 @@ const fetchedContent = (state, { data }) => {
   const newContent = {
     header,
     content,
-    imageUrl: config.api + image?.url,
+    imgUrl: config.api + image?.formats.small.url,
   };
 
   return { ...state, loading: false, [state.activeContent]: newContent };
