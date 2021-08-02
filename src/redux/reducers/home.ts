@@ -1,4 +1,5 @@
 import { config } from "config";
+import { formatImage } from "lib/formatImage";
 import { IAction, IReducers } from "../types";
 
 interface IHomeImageText {
@@ -38,7 +39,7 @@ const fetchedHome = (state, { data }) => {
 
   const mainImageText = main.map(singleImageText => ({
     content: singleImageText.content,
-    imgUrl: config.api + singleImageText.image?.formats.small.url,
+    imgUrl: formatImage(singleImageText.image, "small"),
   }));
 
   return {
@@ -46,7 +47,7 @@ const fetchedHome = (state, { data }) => {
     loading: false,
     heroHeader,
     heroDescription,
-    heroImageUrl: config.api + heroImage?.url,
+    heroImageUrl: formatImage(heroImage, "small"),
     mainImageText,
   };
 };

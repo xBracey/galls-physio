@@ -1,4 +1,5 @@
 import { config } from "config";
+import { formatImage } from "lib/formatImage";
 import { IAction, IReducers } from "../types";
 
 export interface ILogo {
@@ -30,7 +31,7 @@ const loadingLogos = state => ({ ...state, loading: true });
 const fetchedLogos = (state, { data }) => {
   const logos = data.map(logo => ({
     link: logo.link,
-    imgUrl: config.api + logo.image?.url,
+    imgUrl: formatImage(logo.image, "thumbnail"),
   }));
 
   return { ...state, loading: false, logos };

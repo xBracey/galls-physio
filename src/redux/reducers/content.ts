@@ -1,4 +1,5 @@
 import { config } from "config";
+import { formatImage } from "lib/formatImage";
 import { IAction, IReducers } from "../types";
 
 export interface ISingleContent {
@@ -50,7 +51,7 @@ const fetchedContent = (state, { data }) => {
   const newContent = {
     header,
     content,
-    imgUrl: config.api + image?.formats.small.url,
+    imgUrl: formatImage(image, "small"),
   };
 
   return { ...state, loading: false, [state.activeContent]: newContent };

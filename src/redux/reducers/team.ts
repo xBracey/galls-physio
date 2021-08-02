@@ -1,4 +1,5 @@
 import { config } from "config";
+import { formatImage } from "lib/formatImage";
 import { IAction, IReducers } from "../types";
 
 interface ITeamMember {
@@ -31,7 +32,7 @@ const loadingTeam = state => ({ ...state, loading: true });
 
 const fetchedTeam = (state, { data }) => {
   const members = data.map(teamMember => ({
-    imgUrl: config.api + teamMember.image?.url,
+    imgUrl: formatImage(teamMember.image, "thumbnail"),
     name: teamMember.name,
     jobTitle: teamMember.jobTitle,
     description: teamMember.description,

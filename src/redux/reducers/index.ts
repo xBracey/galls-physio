@@ -6,6 +6,7 @@ import footer, { footerTypes, IFooter } from "./footer";
 import team, { teamTypes, ITeam } from "./team";
 import content, { contentTypes, IContent } from "./content";
 import testimonials, { testimonialsTypes, ITestimonials } from "./testimonials";
+import contact, { contactTypes, IContact } from "./contact";
 
 export const cache = {};
 
@@ -17,6 +18,7 @@ export const types = {
   team: teamTypes,
   content: contentTypes,
   testimonials: testimonialsTypes,
+  contact: contactTypes,
 };
 
 export interface IRootState {
@@ -27,6 +29,7 @@ export interface IRootState {
   team: ITeam;
   content: IContent;
   testimonials: ITestimonials;
+  contact: IContact;
 }
 
 export default combineReducers({
@@ -37,4 +40,5 @@ export default combineReducers({
   team,
   content,
   testimonials,
+  contact,
 });

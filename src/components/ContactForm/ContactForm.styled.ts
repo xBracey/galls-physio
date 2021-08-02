@@ -3,10 +3,10 @@ import styled from "styled-components";
 import { colours } from "theme";
 
 export const ContactFormContainer = styled.form`
-  width: 450px;
-  margin: 25px 25px 45px 25px;
+  width: calc(100% - 64px);
+  max-width: 750px;
+  margin: 25px 0;
   background-color: ${colours.white};
-  border: 2px solid ${colours.grey200};
   box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: center;
@@ -16,22 +16,6 @@ export const ContactFormContainer = styled.form`
   color: ${colours.black200};
   position: relative;
   border-radius: 10px;
-`;
-
-export const ContactFormHeader = styled.h3`
-  color: ${colours.blue300};
-  margin: 15px 0 30px 0;
-`;
-
-export const ContactFormNameEmail = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-export const ContactFormMessage = styled.div`
-  display: flex;
-  align-items: center;
-  width: 100%;
 
   ${TextInputOuterContainer} {
     width: 100%;
@@ -41,6 +25,23 @@ export const ContactFormMessage = styled.div`
       resize: vertical;
     }
   }
+`;
+
+export const ContactFormHeader = styled.h3`
+  margin: 15px 0 30px 0;
+`;
+
+export const ContactFormNameEmail = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+`;
+
+export const ContactFormMessage = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
 `;
 
 export const ContactFormDummySubmit = styled.input`

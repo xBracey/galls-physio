@@ -17,9 +17,10 @@ import { Head } from "components/Head";
 interface IPage {
   children: ReactNode;
   title: string;
+  isContact?: boolean;
 }
 
-export const Page = ({ children, title }: IPage) => {
+export const Page = ({ children, title, isContact }: IPage) => {
   const isTop = useScroll();
 
   const dispatch: AppDispatch = useDispatch();
@@ -31,18 +32,22 @@ export const Page = ({ children, title }: IPage) => {
     dispatch(getFooter());
   }, []);
 
+  const contactBannerComponent = isContact ? null : (
+    <ContactBanner
+      text={"Interested in making an appointment?"}
+      callToAction={{
+        text: "Contact Us",
+        link: "/contact",
+      }}
+    />
+  );
+
   return (
     <PageContainer>
       <Head title={`First Team Physio - ${title}`} />
       <Header menu={header} isTop={isTop} />
       <PageContent>{children}</PageContent>
-      <ContactBanner
-        text={"Interested in making an appointment?"}
-        callToAction={{
-          text: "Contact Us",
-          link: "/contact",
-        }}
-      />
+      {contactBannerComponent}
       <LogoBanner logos={logos.logos} />
       <Footer
         address={footer.address}

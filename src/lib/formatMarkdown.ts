@@ -1,8 +1,10 @@
 import marked from "marked";
 
 export const formatMarkdown = (markdown: string) => {
+  const markdownText = markdown ?? "";
+
   return marked(
-    markdown.replaceAll(
+    markdownText.replaceAll(
       "\\n",
       `
        `

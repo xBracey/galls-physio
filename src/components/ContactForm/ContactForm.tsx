@@ -33,7 +33,7 @@ export const ContactForm = ({ onSave }: IContactForm) => {
 
   return (
     <ContactFormContainer onSubmit={onSubmit}>
-      <ContactFormHeader>Contact Us</ContactFormHeader>
+      <ContactFormHeader>Book an appointment</ContactFormHeader>
       <ContactFormNameEmail>
         <TextInput
           text={name}
