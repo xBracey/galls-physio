@@ -6,12 +6,12 @@ import { getContent } from "redux/actions/content";
 import { ISingleContent } from "redux/reducers/content";
 import { IRootState, types } from "redux/reducers/index";
 import { Page } from "templates/Page";
+import { PageHeader } from "theme";
 import {
   ContentPageContainer,
   ContentPageHeroOuterContainer,
   ContentPageHeroContainer,
   PageMenuContainer,
-  ContentPageHeader,
   ContentPageHeaderImage,
   ContentPageContent,
 } from "./ContentPage.styled";
@@ -42,7 +42,7 @@ export const ContentPage = ({ pageMenu, activeContent }: IContentPage) => {
   return (
     <Page title={header}>
       <ContentPageContainer>
-        <ContentPageHeader>{header}</ContentPageHeader>
+        <PageHeader>{header}</PageHeader>
         <ContentPageHeroOuterContainer>
           <ContentPageHeroContainer>
             <PageMenuContainer>

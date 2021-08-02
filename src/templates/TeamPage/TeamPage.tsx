@@ -1,12 +1,8 @@
 import { ITeamMember, TeamMember } from "components/TeamMember";
 import React from "react";
 import { Page } from "templates/Page";
-import {
-  TeamHeader,
-  TeamHeaderContainer,
-  TeamPageContainer,
-  TeamPageOuterContainer,
-} from "./TeamPage.styled";
+import { PageHeader } from "theme";
+import { TeamPageContainer, TeamPageOuterContainer } from "./TeamPage.styled";
 
 interface ITeamPage {
   teamMembers: ITeamMember[];
@@ -19,9 +15,7 @@ export const TeamPage = ({ teamMembers }: ITeamPage) => {
 
   return (
     <Page title={"Meet the Team"}>
-      <TeamHeaderContainer>
-        <TeamHeader>Meet the Team</TeamHeader>
-      </TeamHeaderContainer>
+      <PageHeader>Meet the Team</PageHeader>
       <TeamPageOuterContainer>
         <TeamPageContainer>{membersComponent}</TeamPageContainer>
       </TeamPageOuterContainer>

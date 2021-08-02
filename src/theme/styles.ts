@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
-import { PageContainer, PageContent } from "templates/Page/Page.styled";
+import { colours } from "./colours";
 import { fonts } from "./fonts";
 
 interface IStorybookWrapper {
@@ -59,4 +59,12 @@ export const HeaderLockScroll = createGlobalStyle`
   html {
       overflow: hidden;
   }
+`;
+
+export const PageHeader = styled.h1`
+  color: ${colours.white};
+  text-align: center;
+  padding: 60px 0 60px 0;
+  margin: 0;
+  background-color: ${colours.blue300};
 `;

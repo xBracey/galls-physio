@@ -8,7 +8,7 @@ export const ContentPageHeroOuterContainer = styled.div`
   background-color: ${colours.white};
   justify-content: center;
   align-items: center;
-  padding: 25px 25px 75px 25px;
+  padding: 75px 25px;
 `;
 
 export const ContentPageHeroContainer = styled.div`
@@ -31,14 +31,6 @@ export const PageMenuContainer = styled.div`
   @media ${device.menu} {
     padding: 0 0 50px 0;
   }
-`;
-
-export const ContentPageHeader = styled.h1`
-  color: ${colours.white};
-  text-align: center;
-  padding: 60px 0 60px 0;
-  margin: 40px 0;
-  background-color: ${colours.blue300};
 `;
 
 export const ContentPageHeaderImage = styled.img`

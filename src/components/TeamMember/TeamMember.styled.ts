@@ -16,6 +16,7 @@ export const TeamMemberContainer = styled.div`
   flex-direction: column;
   padding: 25px;
   color: ${colours.black200};
+  border-radius: 10px;
 `;
 
 export const TeamMemberImage = styled.div<TeamMemberImage>`
