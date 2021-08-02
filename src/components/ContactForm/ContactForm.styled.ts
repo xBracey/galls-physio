@@ -1,6 +1,6 @@
 import { TextInputOuterContainer } from "components/TextInput/TextInput.styled";
 import styled from "styled-components";
-import { colours } from "theme";
+import { colours, device } from "theme";
 
 export const ContactFormContainer = styled.form`
   width: calc(100% - 64px);
@@ -36,6 +36,11 @@ export const ContactFormNameEmail = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
+
+  @media ${device.mobile} {
+    flex-direction: column;
+    width: calc(100% - 20px);
+  }
 `;
 
 export const ContactFormMessage = styled.div`
