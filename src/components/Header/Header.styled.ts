@@ -199,7 +199,7 @@ export const HeaderMobileMenu = styled.div`
   }
 
   ${SubMenuContainer} {
-    padding: 12px 12px 0px 12px;
+    padding: 12px 12px 0px 12px !important;
 
     ${MenuLink}:last-child {
       margin-bottom: 0px;

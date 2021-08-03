@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { colours } from "theme";
+import { colours, device } from "theme";
 
 export const TestimonialContainer = styled.div`
   width: 450px;
-  margin: 25px 25px 45px 25px;
+  margin: 25px;
   background-color: ${colours.white};
   border: 2px solid ${colours.grey200};
   box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.3);
@@ -15,6 +15,10 @@ export const TestimonialContainer = styled.div`
   color: ${colours.black200};
   position: relative;
   border-radius: 10px;
+
+  @media ${device.laptop} {
+    margin: 25px 0;
+  }
 `;
 
 export const TestimonialNameContainer = styled.div`

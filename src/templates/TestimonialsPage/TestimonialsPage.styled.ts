@@ -14,4 +14,5 @@ export const TestimonialsPageContainer = styled.div`
   flex-wrap: wrap;
   width: 100%;
   max-width: 1200px;
+  margin-bottom: 20px;
 `;

@@ -7,6 +7,7 @@ import team, { teamTypes, ITeam } from "./team";
 import content, { contentTypes, IContent } from "./content";
 import testimonials, { testimonialsTypes, ITestimonials } from "./testimonials";
 import contact, { contactTypes, IContact } from "./contact";
+import blogs, { blogsTypes, IBlogs } from "./blogs";
 
 export const cache = {};
 
@@ -19,6 +20,7 @@ export const types = {
   content: contentTypes,
   testimonials: testimonialsTypes,
   contact: contactTypes,
+  blogs: blogsTypes,
 };
 
 export interface IRootState {
@@ -30,6 +32,7 @@ export interface IRootState {
   content: IContent;
   testimonials: ITestimonials;
   contact: IContact;
+  blogs: IBlogs;
 }
 
 export default combineReducers({
@@ -41,4 +44,5 @@ export default combineReducers({
   content,
   testimonials,
   contact,
+  blogs,
 });
