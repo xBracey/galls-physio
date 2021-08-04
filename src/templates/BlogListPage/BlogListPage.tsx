@@ -1,6 +1,7 @@
 import { BlogCard } from "components/BlogCard";
 import { Button } from "components/Button";
 import dayjs from "dayjs";
+import { useRouter } from "next/router";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { getBlogs } from "redux/actions/blogs";
@@ -21,8 +22,10 @@ interface IBlogListPage {
 export const BlogListPage = ({ blogs, hasLoadedAll }: IBlogListPage) => {
   const dispatch = useDispatch();
 
+  const router = useRouter();
+
   const onBlogClick = (id: number) => {
-    console.log(id);
+    router.push(`/blog/${id}`);
   };
 
   const onLoadMore = () => {

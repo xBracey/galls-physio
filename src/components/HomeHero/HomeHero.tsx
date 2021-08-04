@@ -12,10 +12,14 @@ import {
 interface IHomeHero {
   imgUrl: string;
   header: string;
-  description: string;
+  description?: string;
 }
 
 export const HomeHero = ({ imgUrl, header, description }: IHomeHero) => {
+  const descriptionComponent = description ? (
+    <HeroDescription>{description}</HeroDescription>
+  ) : null;
+
   return (
     <HomeHeroOuterContainer>
       <HomeHeroFade />
@@ -23,7 +27,7 @@ export const HomeHero = ({ imgUrl, header, description }: IHomeHero) => {
         <HomeHeroMask />
         <HeroContent>
           <HeroHeader>{header}</HeroHeader>
-          <HeroDescription>{description}</HeroDescription>
+          {descriptionComponent}
         </HeroContent>
       </HomeHeroContainer>
       <HomeHeroFade />

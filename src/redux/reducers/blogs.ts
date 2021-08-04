@@ -31,6 +31,7 @@ const initialState: IBlogs = {
 
 export const blogsTypes = {
   BLOGS_FETCHED_BLOGS: "fetchedBlogs",
+  BLOGS_FETCHED_BLOG: "fetchedBlog",
   BLOGS_LOADING_BLOGS: "loadingBlogs",
 };
 
@@ -66,12 +67,35 @@ const fetchedBlogs = (state: IBlogs, { data }) => {
   };
 };
 
+const fetchedBlog = (state: IBlogs, { data }) => {
+  const blogs = { ...state.blogs };
+
+  const { id, header, content, image, published_at, author } = data;
+
+  blogs[id] = {
+    id,
+    header,
+    content,
+    thumbnailImgUrl: formatImage(image, "thumbnail"),
+    imgUrl: formatImage(image, "large"),
+    published: published_at,
+    author,
+  };
+
+  return {
+    ...state,
+    loading: false,
+    blogs,
+  };
+};
+
 /**
  * BLOGS REDUCERS - END
  * */
 
 const reducers: IReducers<IBlogs> = {
   fetchedBlogs,
+  fetchedBlog,
   loadingBlogs,
 };
 
