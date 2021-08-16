@@ -10,7 +10,7 @@ const development: IConfig = {
   api: "http://localhost:1337",
 };
 
-const production: IConfig = { api: "http://195.201.132.246:1337" };
+const production: IConfig = { api: "https://firstteamphysiotherapy.co.uk" };
 
 export const config =
   publicRuntimeConfig.NODE_ENV === "production" ? production : development;
