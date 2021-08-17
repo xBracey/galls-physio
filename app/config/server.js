@@ -1,5 +1,6 @@
 module.exports = ({ env }) => {
   let url = "http://localhost";
+  let adminUrl = "http://localhost/admin";
 
   if (env("NODE_ENV", "development") === "production") {
     url = "https://firstteamphysiotherapy.co.uk/api";
