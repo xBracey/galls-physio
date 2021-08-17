@@ -1,7 +1,12 @@
 module.exports = ({ env }) => {
+  if (env("NODE_ENV", "development") === "production") {
+    url = "/strapi";
+  }
+
   return {
     host: env("HOST", "0.0.0.0"),
     port: env.int("PORT", 1337),
+    url,
     proxy: true,
     admin: {
       auth: {
