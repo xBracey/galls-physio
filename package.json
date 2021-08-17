@@ -11,6 +11,7 @@
     "storybook:build": "build-storybook -c .storybook -o .out",
     "serve": "NODE_ENV=production forever start -c \"./node_modules/.bin/next start -p 8000\" ./",
     "deploy": "docker-compose stop && git pull && yarn && yarn build && yarn start -d",
+    "deploy-strapi": "docker-compose stop && git pull && yarn start -d",
     "forever:stop": "forever stopall",
     "forever:list": "forever list"
   },
