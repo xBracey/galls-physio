@@ -1,6 +1,6 @@
 module.exports = ({ env }) => {
   if (env("NODE_ENV", "development") === "production") {
-    url = "/strapi";
+    url = "https://firstteamphysiotherapy.co.uk/strapi";
   }
 
   return {
