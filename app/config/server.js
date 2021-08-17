@@ -3,7 +3,11 @@ module.exports = ({ env }) => {
   let adminUrl = "http://localhost/admin";
 
   if (env("NODE_ENV", "development") === "production") {
-    url = "https://firstteamphysiotherapy.co.uk/api";
+    url = "https://firstteamphysiotherapy.co.uk/api/";
+  }
+
+  if (env("NODE_ENV", "development") === "production") {
+    adminUrl = "https://firstteamphysiotherapy.co.uk/admin/";
   }
 
   return {
@@ -12,6 +16,7 @@ module.exports = ({ env }) => {
     url,
     proxy: true,
     admin: {
+      url: adminUrl,
       auth: {
         secret: env("ADMIN_JWT_SECRET", "4ea71792e43ab38d55c65a5e17051681"),
       },
