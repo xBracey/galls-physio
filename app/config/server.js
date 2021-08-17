@@ -3,11 +3,11 @@ module.exports = ({ env }) => {
   let adminUrl = "http://localhost/admin";
 
   if (env("NODE_ENV", "development") === "production") {
-    url = "https://firstteamphysiotherapy.co.uk/api";
+    url = "https://firstteamphysiotherapy.co.uk/strapi";
   }
 
   if (env("NODE_ENV", "development") === "production") {
-    adminUrl = "https://firstteamphysiotherapy.co.uk/admin";
+    adminUrl = "https://firstteamphysiotherapy.co.uk/strapi/admin";
   }
 
   return {
