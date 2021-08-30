@@ -9,8 +9,8 @@ export const fetchContent = async (
     return apiRequest("/general-physio");
   }
 
-  if (state.content.activeContent === "sportsPhysio") {
-    return apiRequest("/sports-physio");
+  if (state.content.activeContent === "weAlsoOffer") {
+    return apiRequest("/we-also-offer");
   }
 
   if (state.content.activeContent === "covid") {

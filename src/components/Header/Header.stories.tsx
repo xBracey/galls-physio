@@ -28,7 +28,7 @@ story.add("Header Component", () => (
               link: "/where-to-find-us",
             },
             {
-              label: "Sports Physio",
+              label: "We Also Offer",
               link: "/where-to-find-us",
             },
           ],

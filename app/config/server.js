@@ -1,4 +1,6 @@
 module.exports = ({ env }) => {
+  let url = "http://localhost:1337";
+
   if (env("NODE_ENV", "development") === "production") {
     url = "https://firstteamphysiotherapy.co.uk/strapi";
   }

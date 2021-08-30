@@ -2,21 +2,21 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/sports-physio",
-      "handler": "sports-physio.find"
+      "path": "/we-also-offer",
+      "handler": "we-also-offer.find"
     },
     {
       "method": "PUT",
-      "path": "/sports-physio",
-      "handler": "sports-physio.update",
+      "path": "/we-also-offer",
+      "handler": "we-also-offer.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/sports-physio",
-      "handler": "sports-physio.delete",
+      "path": "/we-also-offer",
+      "handler": "we-also-offer.delete",
       "config": {
         "policies": []
       }

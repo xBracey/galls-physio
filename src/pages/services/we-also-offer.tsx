@@ -1,25 +1,25 @@
 import React from "react";
 import { ContentPage } from "templates/ContentPage";
 
-const SportsPhysio = () => {
+const WeAlsoOffer = () => {
   return (
     <ContentPage
       pageMenu={{
-        header: "Sports Physio",
+        header: "We Also Offer",
         menu: [
           {
             text: "General Physio",
             link: "/services/general-physio",
           },
           {
-            text: "Sports Physio",
-            link: "/services/sports-physio",
+            text: "We Also Offer",
+            link: "/services/we-also-offer",
           },
         ],
       }}
-      activeContent="sportsPhysio"
+      activeContent="weAlsoOffer"
     />
   );
 };
 
-export default SportsPhysio;
+export default WeAlsoOffer;

@@ -1,8 +1,8 @@
 {
   "kind": "singleType",
-  "collectionName": "sports_physios",
+  "collectionName": "we_also_offer",
   "info": {
-    "name": "Sports Physio"
+    "name": "We Also Offer"
   },
   "options": {
     "increments": true,

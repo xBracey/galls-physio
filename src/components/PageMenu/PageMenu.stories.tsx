@@ -15,7 +15,7 @@ story.add("PageMenu Component", () => (
           link: "/",
         },
         {
-          text: "Sports Physio",
+          text: "We Also Offer",
           link: "/",
         },
       ]}

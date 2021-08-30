@@ -12,7 +12,7 @@ export interface IContent {
   loading: boolean;
   activeContent: string;
   generalPhysio: ISingleContent;
-  sportsPhysio: ISingleContent;
+  weAlsoOffer: ISingleContent;
   about: ISingleContent;
   covid: ISingleContent;
 }
@@ -27,7 +27,7 @@ const initialState: IContent = {
   loading: false,
   activeContent: null,
   generalPhysio: defaultSingleContent,
-  sportsPhysio: defaultSingleContent,
+  weAlsoOffer: defaultSingleContent,
   about: defaultSingleContent,
   covid: defaultSingleContent,
 };

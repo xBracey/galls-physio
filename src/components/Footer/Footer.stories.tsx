@@ -17,8 +17,8 @@ story.add("Footer Component", () => (
         link: "/services/general-physio",
       },
       {
-        text: "Sports Physio",
-        link: "/services/sports-physio",
+        text: "We Also Offer",
+        link: "/services/we-also-offer",
       },
     ]}
   />

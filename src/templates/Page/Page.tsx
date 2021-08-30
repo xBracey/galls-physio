@@ -61,8 +61,8 @@ export const Page = ({ children, title, isContact }: IPage) => {
             link: "/services/general-physio",
           },
           {
-            text: "Sports Physio",
-            link: "/services/sports-physio",
+            text: "We Also Offer",
+            link: "/services/we-also-offer",
           },
         ]}
       />

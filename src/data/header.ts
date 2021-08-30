@@ -14,8 +14,8 @@ export const header: IMenu[] = [
         link: "/services/general-physio",
       },
       {
-        label: "Sports Physio",
-        link: "/services/sports-physio",
+        label: "We Also Offer",
+        link: "/services/we-also-offer",
       },
     ],
   },
