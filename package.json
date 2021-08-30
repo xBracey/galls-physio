@@ -6,10 +6,10 @@
   "scripts": {
     "start": "docker-compose up",
     "develop": "node server",
-    "build": "node server",
+    "build": "next build",
     "storybook": "start-storybook -s ./public -p 9000 ",
     "storybook:build": "build-storybook -c .storybook -o .out",
-    "serve": "NODE_ENV=production forever start -c \"./node_modules/.bin/next start -p 8000\" ./",
+    "serve": "NODE_ENV=production forever start -c \"node server\" ./",
     "deploy": "docker-compose stop && git pull && yarn && yarn build && yarn start -d",
     "deploy-strapi": "docker-compose stop && git pull && yarn start -d",
     "forever:stop": "forever stopall",
