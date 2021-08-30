@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "docker-compose up",
-    "develop": "next dev -p 8000",
-    "build": "next build",
+    "develop": "node server",
+    "build": "node server",
     "storybook": "start-storybook -s ./public -p 9000 ",
     "storybook:build": "build-storybook -c .storybook -o .out",
     "serve": "NODE_ENV=production forever start -c \"./node_modules/.bin/next start -p 8000\" ./",
