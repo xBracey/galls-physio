@@ -6,5 +6,5 @@ import { action } from "@storybook/addon-actions";
 const story = storiesOf("Components/ContactForm", module);
 
 story.add("ContactForm Component", () => (
-  <ContactForm onSave={action("Save")} />
+  <ContactForm onSave={action("Save")} contactStatus={0} />
 ));
