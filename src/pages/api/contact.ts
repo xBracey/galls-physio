@@ -8,7 +8,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
     const msg = {
-      to: "tommy-brace-22@hotmail.com", // Change to your recipient
+      to: "firstteamphysiotherapy@gmail.com", // Change to your recipient
       from: "firstteamphysiotherapycontact@gmail.com", // Change to your verified sender
       subject: `Online booking enquiry - ${name}`,
       html: `
