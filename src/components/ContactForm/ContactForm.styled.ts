@@ -1,6 +1,6 @@
 import { TextInputOuterContainer } from "components/TextInput/TextInput.styled";
 import styled from "styled-components";
-import { colours, device } from "theme";
+import { colours, device, fonts } from "theme";
 
 export const ContactFormContainer = styled.form`
   width: calc(100% - 64px);
@@ -56,4 +56,42 @@ export const ContactFormDummySubmit = styled.input`
   margin: 0;
   opacity: 0;
   border: 0;
+`;
+
+export const ContactFormLoadingMessageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+  text-align: center;
+`;
+
+export const ContactFormLoading = styled.div`
+  display: flex;
+  border: 6px solid ${colours.grey100};
+  border-radius: 50%;
+  border-top: 6px solid ${colours.blue300};
+  width: 18px;
+  height: 18px;
+  -webkit-animation: spin 1.5s linear infinite; /* Safari */
+  animation: spin 1.5s linear infinite;
+  margin-left: 12px;
+
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 `;

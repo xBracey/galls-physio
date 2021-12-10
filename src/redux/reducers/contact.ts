@@ -6,6 +6,7 @@ export interface IContact {
   contactInfoHeader: string;
   contactInfoContent: string;
   contactInfoMapUrl: string;
+  sentMailStatus: number;
 }
 
 const initialState: IContact = {
@@ -13,11 +14,15 @@ const initialState: IContact = {
   contactInfoHeader: null,
   contactInfoContent: null,
   contactInfoMapUrl: null,
+  sentMailStatus: 0,
 };
 
 export const contactTypes = {
   CONTACT_FETCHED_CONTACT: "fetchedContact",
   CONTACT_LOADING_CONTACT: "loadingContact",
+  CONTACT_SENT_MAIL: "sentMail",
+  CONTACT_RESET_SENT_MAIL: "resetSentMail",
+  CONTACT_LOADING_SENT_MAIL: "loadingSentMail",
 };
 
 /**
@@ -38,6 +43,10 @@ const fetchedContact = (state, { data }) => {
   };
 };
 
+const resetSentMail = state => ({ ...state, sentMailStatus: 0 });
+const loadingSentMail = state => ({ ...state, sentMailStatus: 1 });
+const sentMail = state => ({ ...state, sentMailStatus: 2 });
+
 /**
  * CONTACT REDUCERS - END
  * */
@@ -45,6 +54,9 @@ const fetchedContact = (state, { data }) => {
 const reducers: IReducers<IContact> = {
   fetchedContact,
   loadingContact,
+  sentMail,
+  resetSentMail,
+  loadingSentMail,
 };
 
 export default (state = initialState, action: IAction) => {

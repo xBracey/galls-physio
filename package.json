@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/xBracey/galls-physio#readme",
   "dependencies": {
+    "@sendgrid/mail": "^7.6.0",
     "@storybook/addon-actions": "^6.1.14",
     "@storybook/addon-knobs": "^6.1.14",
     "@storybook/react": "^6.0.22",

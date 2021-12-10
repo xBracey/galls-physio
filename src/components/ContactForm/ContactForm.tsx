@@ -5,6 +5,8 @@ import {
   ContactFormContainer,
   ContactFormDummySubmit,
   ContactFormHeader,
+  ContactFormLoading,
+  ContactFormLoadingMessageContainer,
   ContactFormMessage,
   ContactFormNameEmail,
 } from "./ContactForm.styled";
@@ -16,9 +18,10 @@ import {
 
 interface IContactForm {
   onSave: (state: IContactFormReducer) => void;
+  contactStatus: number;
 }
 
-export const ContactForm = ({ onSave }: IContactForm) => {
+export const ContactForm = ({ onSave, contactStatus = 0 }: IContactForm) => {
   const [state, dispatch]: [IContactFormReducer, any] = useReducer(
     reducer,
     initialState
@@ -31,9 +34,8 @@ export const ContactForm = ({ onSave }: IContactForm) => {
     onSave(state);
   };
 
-  return (
-    <ContactFormContainer onSubmit={onSubmit}>
-      <ContactFormHeader>Book an appointment</ContactFormHeader>
+  const formComponent = (
+    <>
       <ContactFormNameEmail>
         <TextInput
           text={name}
@@ -58,6 +60,29 @@ export const ContactForm = ({ onSave }: IContactForm) => {
         <ContactFormDummySubmit type="submit" />
         <Button text="Submit" onClick={onSubmit} />
       </ContactFormNameEmail>
+    </>
+  );
+
+  return (
+    <ContactFormContainer onSubmit={onSubmit}>
+      <ContactFormHeader>Book an appointment</ContactFormHeader>
+      {contactStatus === 0 && formComponent}
+      {contactStatus === 1 && (
+        <ContactFormNameEmail>
+          <ContactFormLoadingMessageContainer>
+            Sending Message
+            <ContactFormLoading />
+          </ContactFormLoadingMessageContainer>
+        </ContactFormNameEmail>
+      )}
+      {contactStatus === 2 && (
+        <ContactFormNameEmail>
+          <ContactFormLoadingMessageContainer>
+            Message has been sent, you should receive a reply from our team in
+            the next few days
+          </ContactFormLoadingMessageContainer>
+        </ContactFormNameEmail>
+      )}
     </ContactFormContainer>
   );
 };
