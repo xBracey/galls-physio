@@ -18,9 +18,14 @@ interface IPage {
   children: ReactNode;
   title: string;
   isContact?: boolean;
+  metaTags?: {
+    title: string;
+    image: string;
+    type: string;
+  };
 }
 
-export const Page = ({ children, title, isContact }: IPage) => {
+export const Page = ({ children, title, isContact, metaTags }: IPage) => {
   const isTop = useScroll();
 
   const dispatch: AppDispatch = useDispatch();
@@ -44,7 +49,7 @@ export const Page = ({ children, title, isContact }: IPage) => {
 
   return (
     <PageContainer>
-      <Head title={`First Team Physio - ${title}`} />
+      <Head title={`First Team Physio - ${title}`} metaTags={metaTags} />
       <Header menu={header} isTop={isTop} />
       <PageContent>{children}</PageContent>
       {contactBannerComponent}

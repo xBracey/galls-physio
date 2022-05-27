@@ -1,14 +1,16 @@
+import React from "react";
 import { BlogHero } from "components/BlogHero";
 import { formatDate } from "lib/formatDate";
 import { formatMarkdown } from "lib/formatMarkdown";
-import React from "react";
 import { Page } from "templates/Page";
+import { icons } from "assets";
 import {
   BlogPageContainer,
   BlogAuthorContainer,
   BlogAuthor,
   BlogPageContent,
   BlogAuthorOuterContainer,
+  BlogSocial,
 } from "./BlogPage.styled";
 
 interface IBlogPage {
@@ -27,12 +29,35 @@ export const BlogPage = ({
   content,
 }: IBlogPage) => {
   return (
-    <Page title={header}>
+    <Page
+      title={header}
+      metaTags={{
+        title: header ?? "",
+        image: imgUrl ?? "",
+        type: "article",
+      }}
+    >
       <BlogHero header={header} imgUrl={imgUrl} />
       <BlogAuthorOuterContainer>
         <BlogAuthorContainer>
           <BlogAuthor>{author}</BlogAuthor>
           <BlogAuthor>{formatDate(published)}</BlogAuthor>
+          <BlogSocial>
+            <a
+              href={`https://www.facebook.com/sharer.php?u=${window.location.href}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <icons.facebook />
+            </a>
+            <a
+              href={`https://twitter.com/share?url=${window.location.href}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <icons.twitter />
+            </a>
+          </BlogSocial>
         </BlogAuthorContainer>
       </BlogAuthorOuterContainer>
       <BlogPageContainer>

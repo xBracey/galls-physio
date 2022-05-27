@@ -21,12 +21,12 @@ export const BlogAuthorContainer = styled.div`
   align-items: center;
   padding: 25px;
   width: 100%;
-  max-width: 600px;
+  max-width: 500px;
   color: ${colours.white};
 `;
 
 export const BlogAuthor = styled.p`
-  flex: 1;
+  margin: 8px 24px;
   text-align: center;
   font-size: 18px;
 `;
@@ -35,4 +35,10 @@ export const BlogPageContent = styled.div`
   padding: 50px 25px;
   width: 100%;
   max-width: 800px;
+`;
+
+export const BlogSocial = styled.div`
+  svg {
+    margin: 0px 8px;
+  }
 `;

@@ -3,6 +3,8 @@ import close from "./close.inline.svg";
 import menu from "./menu.inline.svg";
 import lock from "./lock.inline.svg";
 import quote from "./quote.inline.svg";
+import facebook from "./facebook.inline.svg";
+import twitter from "./twitter.inline.svg";
 
 export const icons = {
   back,
@@ -10,4 +12,6 @@ export const icons = {
   menu,
   lock,
   quote,
+  facebook,
+  twitter,
 };

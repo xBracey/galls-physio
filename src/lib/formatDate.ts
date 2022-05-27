@@ -4,5 +4,5 @@ import advancedFormat from "dayjs/plugin/advancedFormat";
 dayjs.extend(advancedFormat);
 
 export const formatDate = (date: string) => {
-  return dayjs().format("Do MMM YYYY");
+  return dayjs(date).format("Do MMM YYYY");
 };
