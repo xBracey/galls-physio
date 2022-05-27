@@ -12,6 +12,7 @@ import {
   BlogAuthorOuterContainer,
   BlogSocial,
 } from "./BlogPage.styled";
+import { IMetaTags } from "components/Head/types";
 
 interface IBlogPage {
   header: string;
@@ -19,6 +20,7 @@ interface IBlogPage {
   author: string;
   published: string;
   content: string;
+  metaTags?: IMetaTags;
 }
 
 export const BlogPage = ({
@@ -27,16 +29,10 @@ export const BlogPage = ({
   author,
   published,
   content,
+  metaTags,
 }: IBlogPage) => {
   return (
-    <Page
-      title={header}
-      metaTags={{
-        title: header ?? "",
-        image: imgUrl ?? "",
-        type: "article",
-      }}
-    >
+    <Page title={header} metaTags={metaTags}>
       <BlogHero header={header} imgUrl={imgUrl} />
       <BlogAuthorOuterContainer>
         <BlogAuthorContainer>

@@ -13,16 +13,13 @@ import { Footer } from "components/Footer";
 import { CopyrightFooter } from "components/CopyrightFooter";
 import { getFooter } from "redux/actions/footer";
 import { Head } from "components/Head";
+import { IMetaTags } from "components/Head/types";
 
 interface IPage {
   children: ReactNode;
   title: string;
   isContact?: boolean;
-  metaTags?: {
-    title: string;
-    image: string;
-    type: string;
-  };
+  metaTags?: IMetaTags;
 }
 
 export const Page = ({ children, title, isContact, metaTags }: IPage) => {

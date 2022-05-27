@@ -1,13 +1,10 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import { IMetaTags } from "./types";
 
 interface IHead {
   title: string;
-  metaTags?: {
-    title: string;
-    image: string;
-    type: string;
-  };
+  metaTags?: IMetaTags;
 }
 
 export const Head = ({ title, metaTags }: IHead) => {
