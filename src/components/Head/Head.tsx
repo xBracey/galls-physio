@@ -8,10 +8,6 @@ interface IHead {
 }
 
 export const Head = ({ title, metaTags }: IHead) => {
-  console.log("====================================");
-  console.log({ metaTags });
-  console.log("====================================");
-
   return (
     <NextHead>
       <meta charSet="utf-8" />
@@ -49,7 +45,12 @@ export const Head = ({ title, metaTags }: IHead) => {
 
       {metaTags && <meta property="og:title" content={metaTags.title} />}
       {metaTags && <meta property="og:type" content={metaTags.type} />}
-      {metaTags && <meta property="og:url" content={window.location.href} />}
+      {metaTags && (
+        <meta
+          property="og:url"
+          content={typeof window !== "undefined" ? window.location.href : ""}
+        />
+      )}
       {metaTags && <meta property="og:image" content={metaTags.image} />}
       {metaTags && <meta name="twitter:title" content={metaTags.title} />}
       {metaTags && <meta name="twitter:image" content={metaTags.image} />}

@@ -37,7 +37,11 @@ export const ContentPage = ({ pageMenu, activeContent }: IContentPage) => {
 
   const activeContentState: ISingleContent = contentState[activeContent];
 
-  const { header, imgUrl, content } = activeContentState || {};
+  const { header, imgUrl, content } = activeContentState || {
+    header: "",
+    imgUrl: "",
+    content: "",
+  };
 
   return (
     <Page title={header}>

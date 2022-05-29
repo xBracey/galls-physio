@@ -40,14 +40,18 @@ export const BlogPage = ({
           <BlogAuthor>{formatDate(published)}</BlogAuthor>
           <BlogSocial>
             <a
-              href={`https://www.facebook.com/sharer.php?u=${window.location.href}`}
+              href={`https://www.facebook.com/sharer.php?u=${
+                typeof window !== "undefined" ? window.location.href : ""
+              }`}
               target="_blank"
               rel="noreferrer"
             >
               <icons.facebook />
             </a>
             <a
-              href={`https://twitter.com/share?url=${window.location.href}`}
+              href={`https://twitter.com/share?url=${
+                typeof window !== "undefined" ? window.location.href : ""
+              }`}
               target="_blank"
               rel="noreferrer"
             >

@@ -29,11 +29,11 @@ const BlogSingle = ({ metaTags }: IBlogSingle) => {
 
   return (
     <BlogPage
-      author={blog?.author}
-      content={blog?.content}
-      imgUrl={blog?.imgUrl}
-      published={blog?.published}
-      header={blog?.header}
+      author={blog?.author ?? ""}
+      content={blog?.content ?? ""}
+      imgUrl={blog?.imgUrl ?? ""}
+      published={blog?.published ?? ""}
+      header={blog?.header ?? ""}
       metaTags={metaTags}
     />
   );

@@ -4,14 +4,16 @@ export const useScroll = () => {
   const [isTop, setIsTop] = useState(true);
 
   const handleScroll = () => {
-    setIsTop(window.pageYOffset === 0);
+    if (window) setIsTop(window.pageYOffset === 0);
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    if (typeof window !== "undefined")
+      window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      if (typeof window !== "undefined")
+        window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 

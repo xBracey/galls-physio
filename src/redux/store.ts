@@ -1,25 +1,25 @@
 import { createStore, applyMiddleware, Store, Action } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
+// import { persistStore, persistReducer } from "redux-persist";
+// import storage from "redux-persist/lib/storage";
 import getConfig from "next/config";
 import reducers, { IRootState } from "./reducers";
 import { ThunkNewDispatch } from "./types";
 
 const { publicRuntimeConfig } = getConfig();
 
-const persistConfig = {
-  key: "auth",
-  storage: storage,
-  whitelist: [], // which reducer want to store
-};
+// const persistConfig = {
+//   key: "auth",
+//   storage: storage,
+//   whitelist: [], // which reducer want to store
+// };
 
-const persistedReducer = persistReducer(persistConfig, reducers);
+// const persistedReducer = persistReducer(persistConfig, reducers);
 
 const configureStore = () => {
   const store = createStore(
-    persistedReducer,
+    reducers,
     composeWithDevTools(applyMiddleware(thunk))
   );
 
@@ -46,6 +46,6 @@ const store: Store<IRootState, Action<IRootState>> & {
 
 export type AppDispatch = typeof store.dispatch;
 
-export const persistor = persistStore(store);
+// export const persistor = persistStore(store);
 
 export default store;
