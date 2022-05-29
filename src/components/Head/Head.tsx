@@ -1,5 +1,5 @@
 import React from "react";
-import { Helmet } from "react-helmet";
+import NextHead from "next/head";
 import { IMetaTags } from "./types";
 
 interface IHead {
@@ -8,8 +8,12 @@ interface IHead {
 }
 
 export const Head = ({ title, metaTags }: IHead) => {
+  console.log("====================================");
+  console.log({ metaTags });
+  console.log("====================================");
+
   return (
-    <Helmet>
+    <NextHead>
       <meta charSet="utf-8" />
       <title>{title}</title>
       <meta
@@ -50,6 +54,6 @@ export const Head = ({ title, metaTags }: IHead) => {
       {metaTags && <meta name="twitter:title" content={metaTags.title} />}
       {metaTags && <meta name="twitter:image" content={metaTags.image} />}
       {metaTags && <meta name="twitter:card" content="summary_large_image" />}
-    </Helmet>
+    </NextHead>
   );
 };
