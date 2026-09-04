@@ -1,36 +1,58 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import sgMail from "@sendgrid/mail";
+import nodemailer, { Transporter } from "nodemailer";
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === "POST") {
-    const { name, email, message } = req.body;
+interface IContactRequestBody {
+  name?: string;
+  email?: string;
+  message?: string;
+}
 
-    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const RECIPIENT_EMAIL = "firstteamphysiotherapy@outlook.com";
+const SENDER_EMAIL = process.env.GMAIL_USER;
 
-    const msg = {
-      to: "firstteamphysiotherapy@outlook.com", // Change to your recipient
-      from: "firstteamphysiotherapycontact@gmail.com", // Change to your verified sender
+const transporter: Transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+    user: SENDER_EMAIL,
+    pass: process.env.GMAIL_APP_PASSWORD,
+  },
+});
+
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+): Promise<void> {
+  if (req.method !== "POST") {
+    res.setHeader("Allow", "POST");
+    res.status(405).send({});
+    return;
+  }
+
+  const { name, email, message } = (req.body ?? {}) as IContactRequestBody;
+
+  if (!name || !email || !message || !SENDER_EMAIL) {
+    res.status(400).send({});
+    return;
+  }
+
+  try {
+    await transporter.sendMail({
+      from: SENDER_EMAIL,
+      to: RECIPIENT_EMAIL,
+      replyTo: email,
       subject: `Online booking enquiry - ${name}`,
       html: `
 <p>An online booking enquiry has been made by ${name} with the following message:</p>
 <p>${message}</p>
 <p>To confirm or reject the booking reply back to the following email ${email}</p>
   `,
-    };
+    });
 
-    sgMail
-      .send(msg)
-      .then(() => {
-        console.log("Email sent");
-        res.status(200).send({});
-      })
-      .catch(error => {
-        console.error(error);
-        res.status(400).send({});
-      });
-  } else {
-    console.log("get");
-
-    // Handle any other HTTP method
+    res.status(200).send({});
+  } catch (error) {
+    console.error("Failed to send contact email", error);
+    res.status(400).send({});
   }
 }

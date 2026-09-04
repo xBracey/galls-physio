@@ -4,7 +4,6 @@ import { ContentBox } from "components/ContentBox";
 import React, { useEffect } from "react";
 import { Page } from "templates/Page";
 import { PageHeader } from "theme";
-import sgMail from "@sendgrid/mail";
 import {
   ContactPageContainer,
   ContactPageMap,
