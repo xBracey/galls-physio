@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { Resend } from "resend";
+import axios from "axios";
 
 interface IContactRequestBody {
   name?: string;
@@ -15,10 +15,7 @@ interface IEmailContent {
 
 const RECIPIENT_EMAIL = "tommy-brace-22@hotmail.com";
 // const RECIPIENT_EMAIL = "firstteamphysiotherapy@outlook.com";
-const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const RESEND_FROM_EMAIL = process.env.RESEND_FROM_EMAIL;
-
-const resend = new Resend(RESEND_API_KEY);
+const RESEND_API_URL = "https://api.resend.com/emails";
 
 const escapeHtml = (text: string): string =>
   text
@@ -118,14 +115,20 @@ const buildEmail = (
 };
 
 const getErrorMessage = (error: unknown): string => {
+  if (axios.isAxiosError(error)) {
+    const data = error.response?.data as
+      | { message?: string; name?: string }
+      | undefined;
+    if (data?.message) {
+      return `${data.message}${data.name ? ` (${data.name})` : ""}`;
+    }
+    return error.message;
+  }
   if (error instanceof Error) {
     return error.message;
   }
   if (typeof error === "string") {
     return error;
-  }
-  if (error && typeof error === "object" && "message" in error) {
-    return String((error as { message: unknown }).message);
   }
   return "Unknown error";
 };
@@ -140,9 +143,25 @@ export default async function handler(
     return;
   }
 
+  const apiKey = process.env.RESEND_API_KEY;
+  const fromEmail = process.env.RESEND_FROM_EMAIL;
+
+  if (!apiKey || !fromEmail) {
+    const missing = [
+      !apiKey && "RESEND_API_KEY",
+      !fromEmail && "RESEND_FROM_EMAIL",
+    ]
+      .filter(Boolean)
+      .join(" and ");
+    res
+      .status(500)
+      .send({ error: `Server configuration error: missing ${missing}` });
+    return;
+  }
+
   const { name, email, message } = (req.body ?? {}) as IContactRequestBody;
 
-  if (!name || !email || !message || !RESEND_API_KEY || !RESEND_FROM_EMAIL) {
+  if (!name || !email || !message) {
     res.status(400).send({ error: "Missing required fields" });
     return;
   }
@@ -150,18 +169,24 @@ export default async function handler(
   try {
     const { subject, text, html } = buildEmail(name, email, message);
 
-    const { error } = await resend.emails.send({
-      from: RESEND_FROM_EMAIL,
-      to: RECIPIENT_EMAIL,
-      reply_to: email,
-      subject,
-      text,
-      html,
-    });
-
-    if (error) {
-      throw new Error(error.message);
-    }
+    await axios.post(
+      RESEND_API_URL,
+      {
+        from: fromEmail,
+        to: [RECIPIENT_EMAIL],
+        reply_to: email,
+        subject,
+        text,
+        html,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
+        },
+        timeout: 10000,
+      }
+    );
 
     res.status(200).send({});
   } catch (error) {
