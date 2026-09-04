@@ -153,7 +153,7 @@ export default async function handler(
     const { error } = await resend.emails.send({
       from: RESEND_FROM_EMAIL,
       to: RECIPIENT_EMAIL,
-      replyTo: email,
+      reply_to: email,
       subject,
       text,
       html,
