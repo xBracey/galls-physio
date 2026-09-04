@@ -22,7 +22,22 @@ const transporter: Transporter = nodemailer.createTransport({
 
 const getErrorMessage = (error: unknown): string => {
   if (error instanceof Error) {
-    return error.message;
+    const parts: string[] = [error.message];
+    const nodemailerError = error as Error & {
+      code?: string;
+      response?: string;
+      responseCode?: number;
+    };
+    if (nodemailerError.code) {
+      parts.push(`code: ${nodemailerError.code}`);
+    }
+    if (nodemailerError.responseCode) {
+      parts.push(`smtp: ${nodemailerError.responseCode}`);
+    }
+    if (nodemailerError.response) {
+      parts.push(nodemailerError.response);
+    }
+    return parts.join(" | ");
   }
   if (typeof error === "string") {
     return error;
