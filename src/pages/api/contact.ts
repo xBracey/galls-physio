@@ -13,7 +13,8 @@ interface IEmailContent {
   html: string;
 }
 
-const RECIPIENT_EMAIL = "firstteamphysiotherapy@outlook.com";
+const RECIPIENT_EMAIL = "tommy-brace-22@hotmail.com";
+// const RECIPIENT_EMAIL = "firstteamphysiotherapy@outlook.com";
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const RESEND_FROM_EMAIL = process.env.RESEND_FROM_EMAIL;
 
@@ -152,7 +153,7 @@ export default async function handler(
     const { error } = await resend.emails.send({
       from: RESEND_FROM_EMAIL,
       to: RECIPIENT_EMAIL,
-      reply_to: email,
+      replyTo: email,
       subject,
       text,
       html,
