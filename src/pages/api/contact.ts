@@ -13,8 +13,7 @@ interface IEmailContent {
   html: string;
 }
 
-const RECIPIENT_EMAIL = "tommy-brace-22@hotmail.com";
-// const RECIPIENT_EMAIL = "firstteamphysiotherapy@outlook.com";
+const RECIPIENT_EMAIL = "firstteamphysiotherapy@outlook.com";
 const RESEND_API_URL = "https://api.resend.com/emails";
 
 const escapeHtml = (text: string): string =>
