@@ -20,20 +20,30 @@ const transporter: Transporter = nodemailer.createTransport({
   },
 });
 
+const getErrorMessage = (error: unknown): string => {
+  if (error instanceof Error) {
+    return error.message;
+  }
+  if (typeof error === "string") {
+    return error;
+  }
+  return "Unknown error";
+};
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> {
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
-    res.status(405).send({});
+    res.status(405).send({ error: "Method not allowed" });
     return;
   }
 
   const { name, email, message } = (req.body ?? {}) as IContactRequestBody;
 
   if (!name || !email || !message || !SENDER_EMAIL) {
-    res.status(400).send({});
+    res.status(400).send({ error: "Missing required fields" });
     return;
   }
 
@@ -53,6 +63,6 @@ export default async function handler(
     res.status(200).send({});
   } catch (error) {
     console.error("Failed to send contact email", error);
-    res.status(400).send({});
+    res.status(500).send({ error: getErrorMessage(error) });
   }
 }
